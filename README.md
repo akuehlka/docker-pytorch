@@ -1,4 +1,4 @@
-# {PyTorch 1.2.0 & friends} + CUDA 10.0 + cuDNN 7.6.2
+# {PyTorch 1.6.0 & friends} + CUDA 10.2 + cuDNN 7.6.2
 
 ## Purpose
 
@@ -10,10 +10,10 @@ Get a Jupyterlab up and running in seconds for interactive exploration (hence th
 Included packages (see `Dockerfile` for the full list):
 
   - miniconda3 w/ python 3.7
-  - PyTorch 1.2.0
+  - PyTorch 1.6.0
   - torchvision, torchtext, torchaudio
-  - gpytorch, botorch, ax-platform
-  - allennlp, fairseq, flair, parlAI
+  - # gpytorch, botorch, ax-platform
+  - allennlp, transformers
   - torch-geometric
   - syft (temporarily removed)
   - fastai

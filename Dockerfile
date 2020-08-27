@@ -1,5 +1,5 @@
 # FROM ubuntu:18.04
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:10.2-cudnn8-devel-ubuntu18.04
 
 LABEL maintainer="bosr <romain.bossart@fastmail.com>"
 LABEL description="🐳 Docker environment for Swift GPU Accelerated Machine Learning"

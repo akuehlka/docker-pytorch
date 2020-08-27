@@ -1,24 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-conda install -y \
-	cython numpy scipy \
-	pandas \
-	scikit-learn scikit-image \
-	nltk \
-	\
-	matplotlib seaborn \
-
-
-python -c "import nltk; nltk.download('stopwords')"
-
-# torch
-conda install -y -c pytorch \
-	pytorch==1.5.0 cudatoolkit=10.1 ignite \
-	torchvision torchtext torchaudio \
-
-conda install -y -c pytorch -c gpytorch botorch
-pip install ax-platform
 
 # xgboost & tpot currently require py36
 conda install -y -c conda-forge \
@@ -46,6 +28,27 @@ jupyter serverextension enable --py jupyterlab --sys-prefix \
 pip install jupyterlab_code_formatter
 jupyter serverextension enable --py jupyterlab_code_formatter --sys-prefix
 
+
+
+conda install -y \
+	cython numpy scipy \
+	pandas \
+	scikit-learn scikit-image \
+	nltk \
+	\
+	matplotlib seaborn \
+
+
+python -c "import nltk; nltk.download('stopwords')"
+
+# torch
+conda install -y -c pytorch \
+	pytorch==1.6.0 cudatoolkit=10.2 ignite \
+	torchvision torchtext torchaudio \
+
+conda install -y -c pytorch -c gpytorch botorch
+pip install ax-platform
+
 # SwiftAI
 git clone https://github.com/google/swift-jupyter
 cd swift-jupyter
@@ -60,23 +63,25 @@ conda install -y -c fastai \
 
 #
 pip install \
-	transformers \
+	git+https://github.com/huggingface/transformers \
 	mosestokenizer \
 	sacremoses \
 	spacy \
 	pyro-ppl \
-	allennlp flair \
-	fairseq \
+	allennlp \
+	# flair \
+	# fairseq \
 	# syft \
 	# torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric \
 
 pip install plydata \
 	tqdm \
+	wandb \
 	\
 	python-language-server \
-	ptpython \
 	faker babel
 
 # git clone https://github.com/facebookresearch/ParlAI.git ${HOME}/ParlAI \
 # 	&& cd ${HOME}/ParlAI && python setup.py develop \
 # 	&& cd ${HOME}
+
