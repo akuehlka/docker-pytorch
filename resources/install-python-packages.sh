@@ -63,7 +63,7 @@ conda install -y -c fastai \
 
 #
 pip install \
-	git+https://github.com/huggingface/transformers \
+	transformers \
 	mosestokenizer \
 	sacremoses \
 	spacy \
