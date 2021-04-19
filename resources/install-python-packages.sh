@@ -10,9 +10,9 @@ conda install -y -c conda-forge \
 	jupyter_contrib_nbextensions \
 	nbdime black \
 	\
-	tensorboard \
 	hyperopt \
 	\
+	# tensorboard \
 	# xgboost \
 	# tpot \
 
@@ -34,26 +34,28 @@ conda install -y \
 	cython numpy scipy \
 	pandas \
 	scikit-learn scikit-image \
-	nltk \
 	\
 	matplotlib seaborn \
+	# nltk \
 
 
-python -c "import nltk; nltk.download('stopwords')"
+# python -c "import nltk; nltk.download('stopwords')"
 
 # torch
+TORCH="1.7.0"
+CUDA="10.2"
 conda install -y -c pytorch \
-	pytorch==1.7.0 cudatoolkit=10.2 ignite \
+	pytorch==${TORCH} cudatoolkit=${CUDA} ignite \
 	torchvision torchtext torchaudio \
 
 conda install -y -c pytorch -c gpytorch botorch
 pip install ax-platform
 
-# SwiftAI
-git clone https://github.com/google/swift-jupyter
-cd swift-jupyter
-python register.py --sys-prefix --swift-python-use-conda --use-conda-shared-libs --swift-toolchain $HOME/s4tf
-cd ..
+# # SwiftAI
+# git clone https://github.com/google/swift-jupyter
+# cd swift-jupyter
+# python register.py --sys-prefix --swift-python-use-conda --use-conda-shared-libs --swift-toolchain $HOME/s4tf
+# cd ..
 
 # git clone https://github.com/fastai/swiftai
 
@@ -73,6 +75,12 @@ pip install \
 	# fairseq \
 	# syft \
 	# torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric \
+
+pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-geometric
 
 pip install plydata \
 	tqdm \
